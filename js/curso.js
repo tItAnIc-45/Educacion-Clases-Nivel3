@@ -68,7 +68,7 @@
         <div class="insc-cuerpo">
           <p class="precio">${TP.soles(c.p)}<small> pago único</small></p>
           <label class="cuotas">Pagar en <select id="c-cuotas" aria-label="Número de cuotas"><option value="1">1 pago</option><option value="3">3 cuotas</option><option value="6">6 cuotas</option></select><strong id="c-cuota">${cuotaTxt(1)}</strong></label>
-          <a class="boton" id="c-ins" href="contacto.html?programa=${c.id}">Inscribirme</a>
+          <a class="boton" id="c-ins" href="matricula.html?programa=${c.id}">Inscribirme</a>
           <a class="boton sec" id="c-plan" href="planificador.html?programa=${c.id}">Planificar mi estudio</a>
           <div class="insc-acc"><button type="button" class="enlace-btn" id="c-fav" aria-pressed="${favs.has(id)}">${favs.has(id) ? "♥ Guardado" : "♡ Guardar"}</button><button type="button" class="enlace-btn" id="c-comp">Compartir</button></div>
           <ul class="incluye"><li>${totalH} horas de clases y práctica</li><li>${d.mod.length} módulos con proyecto final</li><li>Feedback de tus docentes</li><li>Certificado digital al terminar</li></ul>
@@ -142,7 +142,7 @@
   </div>
   </div>
 
-  <div class="barra-insc" id="barra-insc"><div><b>${esc(c.t)}</b><small>${TP.soles(c.p)}</small></div><a class="boton" href="contacto.html?programa=${c.id}">Inscribirme</a></div>`;
+  <div class="barra-insc" id="barra-insc"><div><b>${esc(c.t)}</b><small>${TP.soles(c.p)}</small></div><a class="boton" href="matricula.html?programa=${c.id}">Inscribirme</a></div>`;
 
   pintarComentarios(0);
   let filtro = 0;

@@ -2,9 +2,12 @@
 /* Cabecera, pie de página y elementos flotantes compartidos */
 (function () {
   const pag = document.body.dataset.pagina;
-  const enlaces = TP.PAGINAS.map(p => `<a href="${ruta(p.u)}"${p.id === pag ? ' class="activo" aria-current="page"' : ""}>${p.t}</a>`).join("");
+  const enlaces = TP.PAGINAS.filter(p => p.nav !== false).map(p => `<a href="${ruta(p.u)}"${p.id === pag ? ' class="activo" aria-current="page"' : ""}>${p.t}</a>`).join("");
   const lista = TP.PAGINAS.map(p => `<li><a href="${ruta(p.u)}">${p.t}</a></li>`).join("");
   const logo = `<a href="${ruta("index.html")}" class="logo"><img class="colibri" src="${ruta("assets/colibri-mini.png")}" alt="" aria-hidden="true">TUPLUS<b>EDUCA</b></a>`;
+
+  /* La sesión no se almacena en JS: se verifica con cookie HttpOnly ante el servidor. */
+  const accesoPanel = `<a class="boton sec ingresar" href="${ruta("pages/login.html")}">Ingresar</a>`;
 
   document.body.insertAdjacentHTML("afterbegin", `
 <div class="progreso" id="progreso"></div>
@@ -19,6 +22,7 @@
       <button class="punto" data-c="#e0749b" data-c2="#f5a3bf" style="--c:#e0749b" aria-label="Rosa" aria-pressed="false"></button>
       <button class="punto" data-c="#6fa8ff" data-c2="#a9ccff" style="--c:#6fa8ff" aria-label="Azul" aria-pressed="false"></button>
     </div>
+    ${accesoPanel}
     <button class="icono" id="abrirPaleta" aria-label="Buscar en el sitio (Ctrl+K)">⌕</button>
     <button id="tema" class="icono" aria-label="Cambiar tema">☾</button>
     <button id="hamburguesa" class="icono" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
@@ -47,4 +51,10 @@
 <a class="whatsapp" href="https://wa.me/51999999999?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20los%20programas" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 <button id="subir" class="icono" aria-label="Volver arriba" hidden>↑</button>
 <div id="toast" role="status" aria-live="polite"></div>`);
+  fetch('/api/me',{credentials:'same-origin',cache:'no-store'}).then(async respuesta=>{
+    if (!respuesta.ok) return;
+    const cuenta=await respuesta.json();
+    const boton=document.querySelector('.acciones .ingresar');
+    if(boton && cuenta.destino){boton.href=cuenta.destino;boton.textContent='Mi panel';}
+  }).catch(()=>{});
 })();

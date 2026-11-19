@@ -54,73 +54,8 @@ if (!mov && matchMedia("(hover:hover)").matches) {
   }
 }
 
-/* ---------- Transición entre pantallas ---------- */
-const EASE = "cubic-bezier(.65,0,.35,1)";
-
-function cortina(sale) {
-  const c = document.createElement("div"), a = document.createElement("div"), i = document.createElement("div");
-  c.className = "cortina" + (sale ? " sale" : "");
-  a.className = "ave"; i.className = "ave-in";
-  i.append(clonar()); a.append(i); c.append(a);
-  document.body.append(c);
-  return c;
-}
-function rastro(c) {
-  const id = setInterval(() => {
-    const r = c.getBoundingClientRect();
-    chispas((c.classList.contains("sale") ? r.left : r.right) - 30, innerHeight * .42 + Math.random() * 120, 2, 40);
-  }, 50);
-  return () => clearInterval(id);
-}
-
-/* Sale la pantalla actual: la cortina cruza con el colibri y se abre la nueva página */
-function ir(url) {
-  if (mov || TP.yendo) { location.href = url; return; }
-  TP.yendo = true;
-  seguro(() => sessionStorage.setItem("tp-trans", "1"));
-  const c = cortina(false), parar = rastro(c);
-  let hecho = false;
-  const fin = () => { if (hecho) return; hecho = true; parar(); location.href = url; };
-  try { c.animate([{ transform: "translateX(-101%)" }, { transform: "translateX(0)" }], { duration: 900, easing: EASE, fill: "forwards" }).onfinish = fin; }
-  catch { fin(); }
-  setTimeout(fin, 2500);
-}
-TP.ir = ir;
-
-/* Entra la pantalla nueva: la cortina se retira y el colibrí sigue su vuelo */
-(function llegada() {
-  const h = document.documentElement;
-  if (!h.classList.contains("llega")) return;
-  seguro(() => sessionStorage.removeItem("tp-trans"));
-  if (mov) { h.classList.remove("llega"); return; }
-  const c = cortina(true), parar = rastro(c);
-  c.style.transform = "translateX(0)";
-  h.classList.remove("llega");
-  const quitar = () => { parar(); c.remove(); };
-  requestAnimationFrame(() => {
-    try { c.animate([{ transform: "translateX(0)" }, { transform: "translateX(101%)" }], { duration: 950, delay: 120, easing: EASE, fill: "forwards" }).onfinish = quitar; }
-    catch { quitar(); }
-  });
-  setTimeout(quitar, 3000);
-})();
-
-addEventListener("pageshow", e => {
-  if (e.persisted) { TP.yendo = false; $$(".cortina").forEach(x => x.remove()); }
-});
-
-/* Intercepta los enlaces internos para usar la transición */
-document.addEventListener("click", e => {
-  const a = e.target.closest("a[href]");
-  if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === "_blank" || a.hasAttribute("download")) return;
-  const u = new URL(a.href, location.href);
-  if (u.protocol !== location.protocol || u.host !== location.host) return;
-  if (u.pathname === location.pathname && u.search === location.search) return;
-  if (!/\.html?$|\/$/.test(u.pathname)) return;
-  e.preventDefault();
-  ir(u.href);
-});
-
-/* Chispas doradas al pulsar botones */
+/* Las transiciones entre secciones están centralizadas en transiciones.js.
+   Se conserva el efecto de chispas al pulsar botones. */
 document.addEventListener("click", e => {
   if (e.target.closest("button,.boton")) chispas(e.clientX, e.clientY);
 });

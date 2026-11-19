@@ -32,3 +32,12 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Credenciales de demostración: nunca se suben al repositorio
+CREDENCIALES*.txt
+
+# SQLite y sus archivos de journaling (contienen datos y sesiones)
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

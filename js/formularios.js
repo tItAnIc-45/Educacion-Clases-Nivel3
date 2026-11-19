@@ -150,7 +150,14 @@ window.TP_Formularios = (() => {
       bloquear(true);
       // La espera se indica en el botón, sin añadir avisos debajo del formulario.
       try {
-        const res = await fetch(endpoint.trim(), {
+        // Con el servidor N3, Matrícula se entrega a Formspree a través
+        // del servidor y se guarda en SQLite SOLO después de su confirmación.
+        // En una vista estática N2 se conserva el envío directo original.
+        const entregaIntegrada = tipo === "matricula" && window.TP_N3_SERVER === true;
+        const res = await fetch(entregaIntegrada ? "/api/public/matricula" : endpoint.trim(), entregaIntegrada ? {
+          method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(datos.entries())), signal: cancelador.signal
+        } : {
           method: "POST", body: datos, headers: { Accept: "application/json" }, signal: cancelador.signal
         });
         let respuesta = null;
@@ -165,6 +172,8 @@ window.TP_Formularios = (() => {
           mostrarEstado(msg, "error", !esConfig);
           return;
         }
+        // Copia interna para el panel de administración (opcional: si el almacén no está cargado, se omite).
+        try { window.TP_Almacen?.registrar?.({ tipo, nombre: datos.get("nombre"), correo: datos.get("email"), programa: programa.value, codigo: codigoPendiente }); } catch { /* el panel es complementario */ }
         const final = tipo === "matricula"
           ? `Recibimos tu solicitud de matrícula. Código: ${codigoPendiente}. Tu cupo aún no está confirmado.`
           : `Recibimos tu consulta. Código de solicitud: ${codigoPendiente}.`;

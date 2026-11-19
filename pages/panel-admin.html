@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Panel de administración | TUPLUSEDUCA</title>
+<link rel="icon" href="../assets/colibri-mini.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/panel.css">
+<link rel="stylesheet" href="../css/animaciones.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<script>try{var t=localStorage.getItem("tema")||(matchMedia("(prefers-color-scheme: light)").matches?"claro":"oscuro");document.documentElement.dataset.tema=t}catch(e){document.documentElement.dataset.tema="oscuro"}</script>
+<!--TP_SESSION_BOOTSTRAP-->
+<script src="../js/auth.js"></script>
+<script>TP_Auth.exigir("admin")</script>
+<script>try { if(sessionStorage.getItem('tp-trans')==='1')document.documentElement.classList.add('llega'); }catch(e){}</script>
+</head>
+<body class="pn-body" data-pagina="panel" data-raiz="../">
+<main class="pn-wrap pn-dash-wrap">
+  <h1 class="pn-sr">Panel de administración</h1>
+
+  <div class="pn-dash-cab">
+    <div>
+      <p class="pn-dash-eyebrow">Dirección académica</p>
+      <h2 class="pn-dash-t">Resumen operativo</h2>
+      <p class="pn-dash-s">Indicadores globales, gestión de cursos y trazabilidad del panel en tiempo real.</p>
+    </div>
+    <button type="button" class="pn-btn principal pn-exportar" id="exportar-reporte" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+      Exportar Reporte <span class="pn-export-tag">CSV / Excel</span>
+    </button>
+  </div>
+
+  <section class="pn-metricas" id="metricas" aria-label="Indicadores y métricas globales"></section>
+
+  <div class="pn-dash-grid">
+    <section class="pn-card pn-gestion" id="cursos" aria-labelledby="gc-t"></section>
+    <section class="pn-card pn-auditoria" id="auditoria" aria-labelledby="aud-t"></section>
+  </div>
+
+  <div class="pn-sec-cab">
+    <h2 class="pn-sec-t">Operación diaria</h2>
+    <p>Solicitudes de inscripción, pase de lista y reportes docentes.</p>
+  </div>
+
+  <div class="pn-cols">
+    <div class="pn-col">
+      <div class="pn-cab"><small>Gestión de Matrículas</small><h2 class="pn-h">Solicitudes de Inscripción</h2></div>
+      <div id="sol"></div>
+    </div>
+    <div class="pn-col">
+      <div class="pn-cab"><small>Módulo del Docente</small><h2 class="pn-h">Asistencia y Seguimiento</h2></div>
+      <div id="asist"></div>
+      <section class="pn-card" id="reportes" aria-live="polite"></section>
+    </div>
+  </div>
+  <div class="pn-mant">
+    <span>Los datos se guardan en este navegador.</span>
+    <button type="button" class="pn-btn" id="exportar">Exportar solicitudes (CSV)</button>
+    <button type="button" class="pn-btn" id="restablecer">Restablecer datos de ejemplo</button>
+    <button type="button" class="pn-btn mal" id="vaciar">Borrar todo</button>
+  </div>
+</main>
+<script src="../js/datos.js"></script>
+<script src="../js/utilidades.js"></script>
+<script src="../js/almacen.js"></script>
+<script src="../js/auditoria.js"></script>
+<script src="../js/gestion-cursos.js"></script>
+<script src="../js/panel-comun.js"></script>
+<script src="../js/panel-solicitudes.js"></script>
+<script src="../js/panel-asistencia.js"></script>
+<script src="../js/panel-dashboard.js"></script>
+<script src="../js/panel-admin.js"></script>
+<script src="../js/transiciones.js"></script>
+</body>
+</html>

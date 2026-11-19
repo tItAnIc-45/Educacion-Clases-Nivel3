@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Panel docente | TUPLUSEDUCA</title>
+<link rel="icon" href="../assets/colibri-mini.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/panel.css">
+<link rel="stylesheet" href="../css/animaciones.css">
+<script>try{var t=localStorage.getItem("tema")||(matchMedia("(prefers-color-scheme: light)").matches?"claro":"oscuro");document.documentElement.dataset.tema=t}catch(e){document.documentElement.dataset.tema="oscuro"}</script>
+<!--TP_SESSION_BOOTSTRAP-->
+<script src="../js/auth.js"></script>
+<script>TP_Auth.exigir("docente")</script>
+<script>try { if(sessionStorage.getItem('tp-trans')==='1')document.documentElement.classList.add('llega'); }catch(e){}</script>
+</head>
+<body class="pn-body" data-pagina="panel" data-raiz="../">
+<main class="pn-wrap">
+  <div class="pn-cab pn-cab-fila">
+    <div><small>Módulo del Docente</small><h1 class="pn-h">Asistencia y Seguimiento</h1></div>
+    <p class="pn-saludo" id="saludo"></p>
+  </div>
+  <div id="cursos" class="pn-cursos" role="group" aria-label="Mis cursos"></div>
+  <div class="pn-cols iguales">
+    <div class="pn-col"><div id="bandeja" aria-live="polite"></div><section class="pn-card" id="alumnos" style="margin-top:20px" aria-live="polite"></section></div>
+    <div class="pn-col"><div id="asist"></div></div>
+  </div>
+  <section class="pn-card" id="sesiones" style="margin-top:28px"></section>
+</main>
+<script src="../js/datos.js"></script>
+<script src="../js/utilidades.js"></script>
+<script src="../js/almacen.js"></script>
+<script src="../js/panel-comun.js"></script>
+<script src="../js/panel-asistencia.js"></script>
+<script src="../js/panel-docente.js"></script>
+<script src="../js/transiciones.js"></script>
+</body>
+</html>

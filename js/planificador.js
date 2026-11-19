@@ -94,7 +94,7 @@
     $("#pl-avance").textContent = `${p}% completado`;
     $("#pl-avance-b").style.width = p + "%";
     $("#pl-cuota").textContent = plan.cuota;
-    $("#pl-ins").href = `contacto.html?programa=${plan.c.id}`;
+    $("#pl-ins").href = `matricula.html?programa=${plan.c.id}`;
   }
 
   function cambiar(patch) { Object.assign(s, patch); guardar(); pintar(); }

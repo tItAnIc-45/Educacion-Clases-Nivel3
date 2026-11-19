@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Iniciar sesión | TUPLUSEDUCA</title>
+<link rel="icon" href="../assets/colibri-mini.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/panel.css">
+<link rel="stylesheet" href="../css/animaciones.css">
+<script>try{var t=localStorage.getItem("tema")||(matchMedia("(prefers-color-scheme: light)").matches?"claro":"oscuro");document.documentElement.dataset.tema=t}catch(e){document.documentElement.dataset.tema="oscuro"}</script>
+<script>try { if(sessionStorage.getItem('tp-trans')==='1')document.documentElement.classList.add('llega'); }catch(e){}</script>
+</head>
+<body data-pagina="login" data-raiz="../">
+<div class="lg">
+  <aside class="lg-marca">
+    <a class="logo" href="../index.html"><img class="colibri" src="../assets/colibri-mini.png" alt="" aria-hidden="true">TUPLUS<b>EDUCA</b></a>
+    <img class="colibri-g" src="../assets/colibri.png" alt="" aria-hidden="true">
+    <div>
+      <h1>Entra a tu espacio de estudio.</h1>
+      <p style="color:#b9c9d8;margin:16px 0 26px;max-width:42ch">Elige tu perfil y escribe tu contraseña. Cada perfil abre un panel distinto.</p>
+      <div class="lg-roles" role="group" aria-label="Elige tu perfil">
+        <button type="button" class="lg-rol" data-rol="admin" aria-pressed="false"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>Administrador</b><small>Revisa solicitudes y cambia su estado.</small></span></button>
+        <button type="button" class="lg-rol" data-rol="docente" aria-pressed="false"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></i><span><b>Docente</b><small>Elige tu curso y pasa lista a tus alumnos.</small></span></button>
+        <button type="button" class="lg-rol" data-rol="alumno" aria-pressed="false"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5L2 10l10 5 10-5z"/><path d="M6 12v4c0 1.500 3 3 6 3s6-1.500 6-3v-4"/></svg></i><span><b>Alumno</b><small>Consulta tus cursos y tu asistencia.</small></span></button>
+      </div>
+    </div>
+  </aside>
+  <main class="lg-form-c">
+    <a class="lg-volver" href="../index.html">‹ Volver al sitio</a>
+    <button id="tema" class="icono lg-tema" type="button" aria-label="Cambiar tema">☾</button>
+    <form class="lg-form" id="form-login" novalidate>
+      <h2>Iniciar sesión</h2>
+      <p>Escribe el usuario de tu perfil y su contraseña.</p>
+      <label for="usuario">Usuario</label>
+      <input id="usuario" name="usuario" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="40" required>
+      <label for="clave">Contraseña</label>
+      <div class="lg-clave">
+        <input id="clave" name="clave" type="password" autocomplete="current-password" maxlength="80" required>
+        <button type="button" id="ver" aria-pressed="false" aria-label="Mostrar u ocultar la contraseña">Mostrar</button>
+      </div>
+      <p class="lg-msg" id="msg" role="alert" aria-live="assertive"></p>
+      <button class="pn-btn principal" id="entrar" type="submit">Ingresar</button>
+    </form>
+  </main>
+</div>
+<script src="../js/datos.js"></script>
+<script src="../js/utilidades.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/transiciones.js"></script>
+</body>
+</html>

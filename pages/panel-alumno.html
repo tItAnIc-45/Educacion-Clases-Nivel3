@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Mi espacio | TUPLUSEDUCA</title>
+<link rel="icon" href="../assets/colibri-mini.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/panel.css">
+<link rel="stylesheet" href="../css/animaciones.css">
+<link rel="stylesheet" href="../css/portal-alumno.css">
+<script>try{var t=localStorage.getItem("tema")||(matchMedia("(prefers-color-scheme: light)").matches?"claro":"oscuro");document.documentElement.dataset.tema=t}catch(e){document.documentElement.dataset.tema="oscuro"}</script>
+<!--TP_SESSION_BOOTSTRAP-->
+<script src="../js/auth.js"></script>
+<script>TP_Auth.exigir("alumno")</script>
+<script>try { if(sessionStorage.getItem('tp-trans')==='1')document.documentElement.classList.add('llega'); }catch(e){}</script>
+</head>
+<body class="pn-body" data-pagina="panel" data-raiz="../">
+<main class="pn-wrap ea-wrap">
+  <section class="ea-encabezado" aria-label="Resumen del estudiante">
+    <div><small>Portal del Estudiante</small><h1 id="saludo">¡Hola! 👋</h1><p>Consulta tu matrícula, tus clases y tu asistencia.</p></div>
+  </section>
+  <div id="estado-matricula" aria-live="polite"><div class="ea-estado">Cargando estado de matrícula…</div></div>
+  <div class="ea-grid">
+    <section class="ea-tarjeta" aria-labelledby="titulo-horario">
+      <h2 id="titulo-horario">Mi horario semanal</h2>
+      <ul id="horarios" class="ea-horarios"><li>Cargando horarios…</li></ul>
+    </section>
+    <section class="ea-tarjeta ea-centro" aria-labelledby="titulo-asistencia">
+      <h2 id="titulo-asistencia">Mi asistencia</h2>
+      <div id="grafico-asistencia" class="ea-grafico" role="img" aria-label="Porcentaje de asistencia"><div><strong id="porcentaje">—</strong><small>de asistencia</small></div></div>
+      <p id="resumen-asistencia">Cargando asistencias…</p>
+    </section>
+  </div>
+  <section class="ea-tarjeta ea-lista" aria-labelledby="titulo-cursos">
+    <h2 id="titulo-cursos">Mis cursos y matrículas</h2>
+    <ul id="mis-cursos"><li>Cargando cursos…</li></ul>
+  </section>
+  <section class="ea-tarjeta ea-accesos" aria-labelledby="titulo-accesos">
+    <h2 id="titulo-accesos">Accesos rápidos</h2>
+    <div><a href="programas.html" class="pn-btn">Explorar programas</a><a href="contacto.html" class="pn-btn">Consultar a un asesor</a></div>
+  </section>
+  <p id="actualizado" role="status" aria-live="polite">Consultando información…</p>
+</main>
+<script src="../js/datos.js"></script>
+<script src="../js/utilidades.js"></script>
+
+<script src="../js/panel-comun.js"></script>
+
+<script src="../js/panel-alumno.js"></script>
+<script src="../js/transiciones.js"></script>
+</body>
+</html>

@@ -10,7 +10,8 @@ TP.PAGINAS = [
   { id: "test", t: "Test", u: "pages/test.html" },
   { id: "nosotros", t: "Nosotros", u: "pages/nosotros.html" },
   { id: "planificador", t: "Planificador", u: "pages/planificador.html" },
-  { id: "contacto", t: "Contacto", u: "pages/contacto.html" }
+  { id: "contacto", t: "Contacto", u: "pages/contacto.html" },
+  { id: "matricula", t: "Matrícula", u: "pages/matricula.html", nav: false }
 ];
 
 /* h = horas totales del programa */

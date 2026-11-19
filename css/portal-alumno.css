@@ -1,0 +1,38 @@
+/* Portal del estudiante; colores y tipografías del proyecto, datos exclusivos de la sesión. */
+.ea-wrap{max-width:1130px;padding:46px 5% 80px}
+.ea-encabezado{padding:4px 0 24px}
+.ea-encabezado small{color:var(--dorado);font-size:14px;font-weight:700}
+.ea-encabezado h1{font-size:clamp(28px,4vw,44px);margin:7px 0 6px}
+.ea-encabezado p{color:var(--sec)}
+.ea-estado,.ea-tarjeta{background:var(--oscuro);border:1px solid var(--borde);border-radius:14px;padding:22px}
+.ea-estado{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between}
+.ea-estado span:first-child{font-weight:700;font-size:18px}
+.ea-estado b{color:var(--ok)}
+.ea-estado small{display:block;width:100%;font-size:13px;color:var(--sec)}
+.ea-chip{display:inline-block;padding:6px 12px;border-radius:8px;font-size:13px;font-weight:700;background:var(--pn-btn);white-space:nowrap}
+.ea-chip.aprobada{background:#178562;color:#fff}
+.ea-chip.pendiente{background:#a77b21;color:#fff}
+.ea-chip.rechazada{background:#8f3745;color:#fff}
+.ea-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:18px;margin:18px 0}
+.ea-tarjeta h2{font:700 22px 'Fraunces',Georgia,serif;margin:0 0 18px}
+.ea-horarios,#mis-cursos{list-style:none;display:grid;gap:10px}
+.ea-horarios li{display:grid;gap:2px;background:var(--panel);padding:12px 15px;border:1px solid var(--borde);border-radius:9px}
+.ea-horarios strong{color:var(--texto);font-size:14px}
+.ea-horarios span{color:var(--texto);font-size:14px}
+.ea-horarios small{color:var(--sec)}
+.ea-centro{text-align:center}
+.ea-grafico{--porcentaje:0;width:175px;height:175px;border-radius:50%;margin:10px auto 14px;padding:13px;background:conic-gradient(#4dbd93 0 calc(var(--porcentaje)*.65%),var(--dorado) calc(var(--porcentaje)*.65%) calc(var(--porcentaje)*1%),var(--pn-btn) 0 100%);transform:rotate(-90deg)}
+.ea-grafico>div{border-radius:50%;width:100%;height:100%;background:var(--oscuro);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(90deg)}
+.ea-grafico strong{font-size:38px;line-height:1.2}
+.ea-grafico small{font-size:12px;color:var(--sec)}
+.ea-centro p{font-size:13px;color:var(--sec)}
+.ea-curso{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 4px;border-bottom:1px solid var(--borde)}
+.ea-curso:last-child{border-bottom:0}
+.ea-curso strong,.ea-curso small{display:block}
+.ea-curso small{font-size:13px;color:var(--sec);margin-top:5px}
+.ea-accesos{margin-top:18px}
+.ea-accesos>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ea-accesos .pn-btn{text-align:center;display:flex;align-items:center;justify-content:center;min-height:44px}
+#actualizado{color:var(--sec);margin:14px 0 0;font-size:13px}
+@media(max-width:700px){.ea-grid{grid-template-columns:1fr}.ea-accesos>div{grid-template-columns:1fr}.ea-wrap{padding:28px 5% 70px}}
+@media(max-width:390px){.ea-estado,.ea-tarjeta{padding:17px}.ea-curso{align-items:flex-start}}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrícula | TUPLUSEDUCA</title>
+<meta name="description" content="Envía tu solicitud de matrícula y reserva tu cupo en el programa que elijas.">
+<link rel="icon" href="../assets/colibri-mini.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../css/paginas.css">
+<link rel="stylesheet" href="../css/animaciones.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/formularios.css">
+<script>try{var t=localStorage.getItem("tema")||(matchMedia("(prefers-color-scheme: light)").matches?"claro":"oscuro");document.documentElement.dataset.tema=t;if(sessionStorage.getItem("tp-trans"))document.documentElement.classList.add("llega")}catch(e){document.documentElement.dataset.tema="oscuro"}</script>
+</head>
+<body data-pagina="matricula" data-raiz="../">
+<main>
+  <section class="cabecera">
+    <p class="migas"><a href="../index.html">Inicio</a> / Matrícula</p>
+    <h1>Matrícula</h1>
+    <p class="lead">Elige tu programa y envía tu solicitud. Nuestro equipo la revisa y te confirma el cupo por correo.</p>
+  </section>
+  <section class="contacto" id="contacto">
+    <div>
+      <p class="etiqueta">Solicitud de matrícula</p>
+      <h2>Reserva tu cupo y <span>empieza a aprender.</span></h2>
+      <p class="mat-enlaces">¿Solo quieres información? <a href="contacto.html">Escríbenos desde Contacto</a>. ¿Ya eres alumno? <a href="login.html">Inicia sesión</a>.</p>
+    </div>
+    <form id="formulario" data-tipo="matricula" novalidate aria-busy="false">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" autocomplete="name" placeholder="Tu nombre completo" required maxlength="100" aria-describedby="error-nombre">
+      <small class="error" id="error-nombre" aria-live="polite"></small>
+      <label for="correo">Correo electrónico</label>
+      <input id="correo" name="correo" type="email" autocomplete="email" placeholder="tu@correo.com" required maxlength="254" aria-describedby="error-correo">
+      <small class="error" id="error-correo" aria-live="polite"></small>
+      <label for="programa">Programa de interés</label>
+      <select id="programa" name="programa" required aria-describedby="error-programa"><option value="">Elige un programa</option></select>
+      <small class="error" id="error-programa" aria-live="polite"></small>
+      <label class="consentimiento" for="acepta"><input type="checkbox" id="acepta" name="acepta" required aria-describedby="error-acepta"> Autorizo el envío de mis datos para gestionar esta solicitud de matrícula.</label>
+      <small class="error" id="error-acepta" aria-live="polite"></small>
+      <button class="boton" type="submit">Enviar solicitud</button>
+    </form>
+  </section>
+  <section class="seccion" id="preguntas">
+    <p class="etiqueta">Resolvemos tus dudas</p>
+    <h2>Preguntas <span>sobre tu matrícula.</span></h2>
+    <div class="faq">
+      <details><summary>¿Necesito experiencia previa?</summary><p>No. Los programas de nivel inicial parten desde cero y avanzan paso a paso.</p></details>
+      <details><summary>¿Cuánto tiempo debo dedicar por semana?</summary><p>Con 4 a 6 horas semanales puedes completar cualquier programa en el tiempo indicado. Puedes calcularlo en el <a href="planificador.html" style="color:var(--dorado)">planificador</a>.</p></details>
+      <details><summary>¿Recibo un certificado?</summary><p>Sí. Al terminar el programa y entregar tu proyecto final recibes un certificado digital.</p></details>
+      <details><summary>¿Mi cupo queda confirmado al enviar?</summary><p>No. Al enviar queda en revisión; el cupo se confirma cuando recibes la aprobación por correo.</p></details>
+    </div>
+  </section>
+</main>
+
+<!--TP_SERVER_RUNTIME-->
+<script src="../js/datos.js"></script>
+<script src="../js/utilidades.js"></script>
+<script src="../js/transiciones.js"></script>
+<script src="../js/colibri.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/comun.js"></script>
+<script src="../js/almacen.js"></script>
+<script src="../js/formularios-config.js"></script>
+<script src="../js/formularios.js"></script>
+<script src="../js/matricula.js"></script>
+</body>
+</html>
