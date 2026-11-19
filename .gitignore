@@ -17,6 +17,7 @@ dist
 dist-ssr
 *.local
 tmp/
+.vercel
 
 # Sistema operativo y editor
 .DS_Store
